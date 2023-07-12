@@ -1,1 +1,124 @@
-# colorincode-starter-bp
+# Getting Started 🚀
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+## Prerequisites 📋
+You'll need Git and Node.js (which comes with NPM) installed on your computer. Sometimes this can require visual studio dev tools or a similar C++ object oriented environment to your machine, if not already present. 
+
+~~`node\@LTS or higher`~~ `probably want to use nvm to control node versions just in case , see nvm docs`
+`npm\@latest or higher`
+`pnpm\@latest or higher`
+`git\@latest or higher`
+`yarn@latest or higher`
+
+☝️ You may want to change package managers based on project needs. This is really up to you, but it is recommended to 
+install these at a root/machine level so you can switch package managers more easily and have them easily accessible. 
+☝️ It may help to have a package VERSION manager onboard as well, though this is not required to build. see NPX
+☝️ Also, you can use Yarn instead of NPM
+☝️ if a yarn lock file is present, it will use yarn for the build scripts. If you want to favor npm or pnpm, delete the yarn lock. 
+☝️ **It is not recommended to try to deploy/host this starter on any cloud env, dropbox, docker, etc.** It has way too 
+many parallel tasks and worker tasks that it will try to spin which may consume server/system/image resources. Rather,
+clone the repo locally, and develop on a machine. Store your dist/prod output on those environments if remote testing is needed. 
+
+## Installation - boilerplate 1.0.2
+
+### Clone the repository
+`[github-starter-bp](https://github.com/colorincode/colorincode-starter-bp.git)`
+
+run (using npm and yarn):
+`npm i | npm i yarn`
+
+### Install dependencies
+`npm i @parcel/transformer-sass | npm i @parcel/resolver-glob | npm i glob`
+
+
+### file structure and project root directory 
+The file structure has changed from version 1.0.2, the scss and ts folders are now located within the src folder. Update any import, function calls, and html links accordingly if using any older packages. 
+**your app root folder should contain the following files**
+`.parcelrc | package.json (no lock) | tsconfig.json | sharp.config.json | yarn.lock`
+`.eslintignore | .prettierignore | .gitignore `
+
+### scaffolding:
+
+**- your app scaffolding structure should look like:**
+~~~
+|_dist 
+|_src
+    |_scss
+    |_ts
+    index.html
+|_working-files
+~~~
+
+## How To Use 🔧
+☝️ **successful build and start should produce the following folders:**
+**dist | .parcel-cache | node_modules**
+
+☝️npm scripts in package json have been re-ordered, as they need to be run in order to build on top of one another
+running these out of orders can cause problems you don't need to fix at runtime/build.
+
+## troubleshooting & help:
+
+
+
+### useful commands 
+sometimes packages get deprecated: 
+`npm audit fix`
+this particular package breaks on rebuilds a lot. Sometimes node-rebuild-sass is necessary. 
+`npm i @parcel/transformer-sass`
+
+### links 
+[parcel svg support](https://parceljs.org/languages/svg/)
+[font awesome](https://fontawesome.com/)
+
+
+## package exports and globs
+- added support for package exports and globs. this requires a .parcelrc file. This is not added by default as it is a setting that can cause existing packages to break. you will need to create a .parcelrc file with the following settings:
+
+## images
+in our projects, non-working files should be placed in the assets folder of the root of the project so that we can run a default image compression. ALWAYS check your images to ensure there is not a great loss of quality. The goal of the assets folder is to be able to upload it as-is to a remote without having to relink images. Ensure that your assets folder is in the project root directory. 
+
+### Resizing and converting images
+
+Parcel includes an image transformer out of the box, which allows you to resize images, convert them to a different format, or adjust the quality to reduce file size. This can be done using query parameters when referencing the image, or using a configuration file.
+
+The image transformer relies on the Sharp image transformation library, which will be automatically installed as a dev dependency into your project when needed.
+
+### The query parameters you can use are:
+
+
+> width – The width to resize the image to
+> height – The height to resize the image to
+> quality – The image quality percentage you want, for example ?quality=75
+> as – File format to convert the image to, for example: ?as=webp
+
+
+### Image formats
+#
+The following image formats are supported, both as input and as output via the as query parameter:
+
+
+> jpeg / jpg - JPEG is a very widely supported lossy image format. It\'s often used for photos, and offers reasonably good compression, but does not support transparency or lossless compression.
+> png - Portable Network Graphics (PNG) is a lossless image format. PNGs are typically much larger than JPEGs or other lossy image formats, but support transparency and offer much higher quality for fine details.
+> webp – WebP supports both lossy and lossless compression as well as animation and transparency. It\'s supported in all modern browsers, and offers better compression for the same quality as JPEGs and PNGs.
+> avif – AVIF is a new lossy image format based on the AV1 video codec which offers significant compression and quality improvements over JPEG and WebP. It\'s currently supported in the latest versions of Chrome and Firefox.
+> The following formats are also supported as inputs, but are not generally supported by browsers: tiff, heic / heif, and raw.
+
+
+## Changelog and updates
+
+## breaking changes - boilerplate 1.0.1 07-11-23
+
+> You will need to make sure to change the file scaffolding and build tools as old files may not build properly if copying older project files or trying to migrate a project to this one. 
+
+- postcssrc and cssnano.config.js files are removed to favor the Rust compiler settings for sass/css resolution instead of postCSS. this may break some packages. 
+- added a clear cache script: **"rimraf --glob .parcel-cache/*",** should be possible to add a mac and windows compatable using ||
+- added a clear distribution script: **"clear-dist": "rimraf --glob dist/*",**
+- added a clear distribution and cache script **"npm run clear-dist && npm run clear-cache",**
+- >replace the U+002A unicode below with * character if implementing
+- added a script to clean out the map files from the distribution folder **"rimraf --glob dist/[U+002AU+002A]/[U+002A].[U+002A].map",**
+- changed the build script to avoid an error when dist has been cleared and parcel cache is looking for files, builds will take longer 
+**"npm run clear-cache && parcel build ./src/index.html --target web --no-optimize",**
+- created a temporary production script **"npm run clean && yarn build && yarn start"**
+
+> npm i @parcel/transformer-sass needs to be re-run from CLI and put in a different dependency mode in package json , node-rebuild-sass may be needed in some instances
+> rimraf is now a project dep, so rimraf scripts can be run uniformly, agnostic of the env or machine. 
