@@ -1,0 +1,60 @@
+/* SCSS HEX */
+$verdigris: #75b9beff;
+$night: #0f0e0eff;
+$amaranth-purple: #b6174bff;
+$folly: #f9485eff;
+$caribbean-current: #197278ff;
+$verdigris-2: #4da69dff;
+$onyx: #3d3d3dff;
+
+/* SCSS HSL */
+$verdigris: hsla(184, 36%, 60%, 1);
+$night: hsla(0, 3%, 6%, 1);
+$amaranth-purple: hsla(340, 78%, 40%, 1);
+$folly: hsla(353, 94%, 63%, 1);
+$caribbean-current: hsla(184, 66%, 28%, 1);
+$verdigris-2: hsla(174, 37%, 48%, 1);
+$onyx: hsla(0, 0%, 24%, 1);
+
+/* SCSS RGB */
+$verdigris: rgba(117, 185, 190, 1);
+$night: rgba(15, 14, 14, 1);
+$amaranth-purple: rgba(182, 23, 75, 1);
+$folly: rgba(249, 72, 94, 1);
+$caribbean-current: rgba(25, 114, 120, 1);
+$verdigris-2: rgba(77, 166, 157, 1);
+$onyx: rgba(61, 61, 61, 1);
+
+/* SCSS Gradient */
+$gradient-top: linear-gradient(0deg, #75b9beff, #0f0e0eff, #b6174bff, #f9485eff, #197278ff, #4da69dff, #3d3d3dff);
+$gradient-right: linear-gradient(90deg, #75b9beff, #0f0e0eff, #b6174bff, #f9485eff, #197278ff, #4da69dff, #3d3d3dff);
+$gradient-bottom: linear-gradient(180deg, #75b9beff, #0f0e0eff, #b6174bff, #f9485eff, #197278ff, #4da69dff, #3d3d3dff);
+$gradient-left: linear-gradient(270deg, #75b9beff, #0f0e0eff, #b6174bff, #f9485eff, #197278ff, #4da69dff, #3d3d3dff);
+$gradient-top-right: linear-gradient(45deg, #75b9beff, #0f0e0eff, #b6174bff, #f9485eff, #197278ff, #4da69dff, #3d3d3dff);
+$gradient-bottom-right: linear-gradient(135deg, #75b9beff, #0f0e0eff, #b6174bff, #f9485eff, #197278ff, #4da69dff, #3d3d3dff);
+$gradient-top-left: linear-gradient(225deg, #75b9beff, #0f0e0eff, #b6174bff, #f9485eff, #197278ff, #4da69dff, #3d3d3dff);
+$gradient-bottom-left: linear-gradient(315deg, #75b9beff, #0f0e0eff, #b6174bff, #f9485eff, #197278ff, #4da69dff, #3d3d3dff);
+$gradient-radial: radial-gradient(#75b9beff, #0f0e0eff, #b6174bff, #f9485eff, #197278ff, #4da69dff, #3d3d3dff);
+
+
+/* these are raw CSS variables, Sass requires these to be interpolated for utilization which will cause your build to fail. skipping utilization
+for now, docs here: https://sass-lang.com/documentation/breaking-changes/css-vars/
+
+:root {
+--verdigris: #75b9beff;
+--night: #0f0e0eff;
+--amaranth-purple: #b6174bff;
+--folly: #f9485eff;
+--caribbean-current: #197278ff;
+--verdigris-2: #4da69dff;
+--onyx: #3d3d3dff;
+
+--verdigris: hsla(184, 36%, 60%, 1);
+--night: hsla(0, 3%, 6%, 1);
+--amaranth-purple: hsla(340, 78%, 40%, 1);
+--folly: hsla(353, 94%, 63%, 1);
+--caribbean-current: hsla(184, 66%, 28%, 1);
+--verdigris-2: hsla(174, 37%, 48%, 1);
+--onyx: hsla(0, 0%, 24%, 1);
+}
+*/

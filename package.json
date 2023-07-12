@@ -1,0 +1,42 @@
+{
+    "name": "colorincode-boilerplate-starter",
+    "browserslist": "> 0.5%, last 2 versions, not dead",
+    "version": "1.0.2",
+    "source": "src/index.html",
+    "web": "dist/index.html",
+    "license": "MIT",
+    "private": true,
+    "type": "module",
+    "targets": {
+        "web": {
+            "context": "browser",
+            "publicUrl": "./"
+        }
+    },
+    "scripts": {
+        "build": "parcel build ./src/index.html --target web --no-optimize --no-source-maps --no-content-hash",
+        "start": "parcel --open --no-cache ./src/index.html --target web --no-source-maps",
+        "clear-cache": "rimraf --glob .parcel-cache/*",
+        "clear-dist": "rimraf --glob dist/*",
+        "remove-maps": "rimraf --glob dist/**/*.*.map",
+        "clean": "npm run clear-dist && npm run clear-cache",
+        "format": "prettier --write src/**/* --no-error-on-unmatched-pattern",
+        "production": "npm run clean && yarn build && yarn start"
+    },
+    "devDependencies": {
+        "@parcel/resolver-glob": "^2.9.3",
+        "@parcel/transformer-sass": "^2.9.3",
+        "parcel": "latest",
+        "parcel-transformer-bypass": "^1.0.0",
+        "parcel-transformer-ejs": "^1.0.1",
+        "parcel-transformer-handlebars": "^1.0.0",
+        "prettier": "2.4.1",
+        "rimraf": "^3.0.2",
+        "typescript": "^4.9.4"
+    },
+    "dependencies": {
+        "autoprefixer": "^10.4.13",
+        "parcel-namer-hashless": "^1.0.5",
+        "yarn": "^1.22.19"
+    }
+}

@@ -1,0 +1,19 @@
+# DEPENDENCIES
+node_modules/
+assets/
+working-files/
+package-lock.json
+yarn.lock
+# ENV FILES
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.codesandbox
+# MAC
+._*
+.DS_Store
+Thumbs.db
+# local files
+working-files/
