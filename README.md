@@ -104,8 +104,10 @@ npm i rebuild-node-sass
 
 
 ### parcel specific links
-[@parcel/transformer-sass](https://www.npmjs.com/package/@parcel/transformer-sass) <br/> 
+[@parcel/transformer-sass](https://www.npmjs.com/package/@parcel/transformer-sass) 
+
 [parcel svg support](https://parceljs.org/languages/svg/)
+
 [parcel plugins](https://parceljs.org/plugin-browser/)
 
 
