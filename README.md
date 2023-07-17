@@ -91,6 +91,8 @@ Rebuilding the transformer and rebuild-node-sass seems to rectify that error.
 npm i @parcel/transformer-sass
 
 npm i rebuild-node-sass
+
+npm i --save @types/jquery
 ~~~
 
 ## Links 🔖
