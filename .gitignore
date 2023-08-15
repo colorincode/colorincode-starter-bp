@@ -17,3 +17,6 @@ yarn.lock
 Thumbs.db
 # local files
 working-files/
+# build and cache files
+dist/
+.parcel-cache/
