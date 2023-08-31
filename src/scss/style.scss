@@ -1,7 +1,5 @@
 
-@import './_variables.scss';
-@import './mixins.scss';
-@import './colors.scss';
+@use './helpers.scss' as *;
 
 body {
     border: $devBorder;

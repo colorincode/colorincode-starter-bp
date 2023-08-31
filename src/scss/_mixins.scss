@@ -1,0 +1,123 @@
+$breakpoints: ( 
+    "phone" : 415px, 
+    "tablet-small": 640px, 
+    "tablet" : 768px, 
+    "tablet-wide" : 1024px, 
+    "desktop" : 1248px, 
+    "ultra-wide": 2560px);
+@mixin mq($width, $type: min) {
+    @if map_has_key($breakpoints, $width) {
+        $width: map_get($breakpoints, $width);
+        @if $type==max {
+            $width: $width - 1px;
+        }
+        @media only screen and (#{$type}-width: $width) {
+            @content;
+        }
+    }
+}
+
+// example use 
+// .tester {
+//   border:2px dashed purple;
+//   @include mq(phone){
+//     border:2px solid red;
+//   }  
+//     @include mq(tablet-small){
+//     border:2px solid black;
+//   }  
+//     @include mq(tablet){
+//     border:2px solid orange;
+//   }  
+//     @include mq(tablet-wide){
+//     border:2px solid blue;
+//   }  
+//       @include mq(desktop){
+//     border:2px solid yellow;
+//   }  
+//       @include mq(ultra-wide){
+//     border:2px solid green;
+//   }  
+// }
+
+@mixin reset--list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+// example of vendor prefix mixin
+// * {
+//   @include vendor--prefix('box-sizing', 'border-box');
+// }
+@mixin vendor--prefix($name, $value) {
+    @each $vendor in ('-webkit-', '-moz-', '-ms-', '-o-', '') {
+        #{$vendor}#{$name}: #{$value};
+    }
+}
+
+@function calculateRem($size) {
+    $remSize: $size / 16px;
+    @return $remSize * 1rem;
+  }
+  
+  @mixin font-size($size) {
+    font-size: $size;
+    font-size: calculateRem($size);
+  }
+
+/* string replace and interpolation for sass, you will need this for some fonts and anything with escapable/string characters*/
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace +
+			str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+/* font rendering utility function written to return fonts more efficiently 
+
+There is probably a better way to do this, but
+you will want to call the include on the class that uses the fonts. 
+if you have several fonts to load, you will want to 
+pass it unique identifiers, e.g.:
+ .myclassname__awesome-font-two{
+    @include font-face(unique-font-one, fonts/one);
+}
+ .myclassname__awesome-font-two{
+   @include font-face(unique-font-two, fonts/two);
+}
+
+*/
+
+
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		font-display: swap;
+		src: $src;
+	}
+}
