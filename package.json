@@ -7,6 +7,15 @@
     "license": "MIT",
     "private": true,
     "type": "module",
+    "@parcel/transformer-css": {
+        "drafts": {
+            "nesting": true
+          },
+        "cssModules": {
+          "dashedIdents": true,
+          "cssModules": true
+        }
+      },
     "targets": {
         "web": {
             "context": "browser",
@@ -23,6 +32,7 @@
         "format": "prettier --write src/**/* --no-error-on-unmatched-pattern",
         "production": "npm run clean && yarn build && yarn start"
     },
+    
     "devDependencies": {
         "@parcel/resolver-glob": "^2.9.3",
         "@parcel/transformer-sass": "^2.9.3",
@@ -39,8 +49,10 @@
         "typescript": "^4.9.4"
     },
     "dependencies": {
+        
         "@types/jquery": "^3.5.16",
         "autoprefixer": "^10.4.13",
+        "glob": "^10.3.3",
         "jquery": "^3.7.0",
         "parcel-namer-hashless": "^1.0.5",
         "yarn": "^1.22.19"

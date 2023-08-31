@@ -16,3 +16,5 @@ coverage
 node_modules
 tmp
 fixtures
+
+working-files

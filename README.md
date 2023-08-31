@@ -152,7 +152,33 @@ The following image formats are supported, both as input and as output via the a
 
 ## Changelog and updates 🔔
 
-### **Breaking changes** - V1.0.2 07-11-23 
+### **Version 1.0.3** V1.0.3 08-16-2023 🔔
+> added support for @use and @forward for SCSS partials
+> package.json , index and scss files have been updated to reflect this support. on existing project folders, be sure to update package json, run npm update/i again
+
+> added support for CSS nesting! Now (S)CSS can be nested within classes, including support for wrapping @media selectors into classes without a redeclaration. Be sure to polyfill or check browsers on dist for full support. existing mixins and functions in 
+scss may need to be updated to support native nesting. 
+
+> added support for SCSS native CSS (--var) variables to be used. This is a draft feature, so use with caution, and be sure to follow parcelJS guidelines for CSS vars, especially if globally accessed. Instead, target the root or wrap in @support @nest or other SCSS/parcel guidelines - but they should now build when targeted at the root
+
+> changed SCSS files to use "helpers.scss" so any unused SCSS classes will be shaken from the tree. All partials now correctly
+formatted to use @forward and @use rules over @imports, which should significantly improve ability to access variables without
+having to change stylesheets. 
+
+> modified index.html so it is now only taking in one TS and one SCSS file, no stacking necessary, should improve build and run
+time significantly
+
+> added structure and support for template partials with pug. There are now globals/footer/header so you can rope a pug file into
+an the index or any HTML file. You can include a pug file with script, be sure to specify it is a module to avoid build errors.
+
+> updated gitignore to ignore cache and dist files by default 
+
+> assets folder needs to be nested within "src" for sharp image compression and optimization can occur on dist build
+
+
+
+
+### **Breaking changes** - V1.0.2 07-11-23 🔔
 
 > Added support for package exports and globs. this requires a .parcelrc file. This is not added by default as it is a setting that can cause existing packages to break. you will need to create a .parcelrc file with the following settings:
 
