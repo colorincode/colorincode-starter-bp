@@ -4,13 +4,9 @@
 //commonJS module
 //const script = require(‘./js/script’);
 
-// import jquery 
+// import jquery , will need this for build to compile correctly when using jquery
 import * as jquery from 'jquery';
-
-// will need this for build to compile correctly 
-
 (window as any).$ = (window as any).jQuery = jquery;
-
 console.log("stepped through imports, help me");
 
 //ELE module

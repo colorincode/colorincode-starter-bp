@@ -62,6 +62,7 @@ resolve this.
 ~~~
 |_dist 
 |_src
+    |_partials (if using)
     |_scss
     |_ts
     index.html
@@ -151,8 +152,20 @@ The following image formats are supported, both as input and as output via the a
 
 
 ## Changelog and updates 🔔
+### **Version 1.0.5** 02-11-2024
+> update package json to support partials
+> added html template partials, update partial for globals (pure html)
+> re structuring fixes for better readability of partials. 
+
+
+### **Version 1.0.4**
+> minor fixes
+> dependency and node updates
+> added support for post html and post css processing
 
 ### **Version 1.0.3** V1.0.3 08-16-2023 🔔
+
+
 > added support for @use and @forward for SCSS partials
 > package.json , index and scss files have been updated to reflect this support. on existing project folders, be sure to update package json, run npm update/i again
 

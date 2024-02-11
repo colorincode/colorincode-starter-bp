@@ -1,8 +1,8 @@
 {
-    "name": "colorincode-boilerplate-starter",
+    "name": "colorincode-devsite",
     "browserslist": "> 0.5%, last 2 versions, not dead",
-    "version": "1.0.2",
-    "source": "src/index.html",
+    "version": "1.0.8",
+    "source": "src/*.html",
     "web": "dist/index.html",
     "license": "MIT",
     "private": true,
@@ -10,51 +10,76 @@
     "@parcel/transformer-css": {
         "drafts": {
             "nesting": true
-          },
+        },
         "cssModules": {
-          "dashedIdents": true,
-          "cssModules": true
+            "dashedIdents": true,
+            "cssModules": true
         }
-      },
+    },
     "targets": {
         "web": {
             "context": "browser",
             "publicUrl": "./"
+        },
+        "production": {
+            "distDir": "./production"
         }
     },
     "scripts": {
-        "build": "parcel build ./src/index.html --target web --no-optimize --no-source-maps --no-content-hash",
+        "build": "parcel build ./src/index.html --target web --no-optimize --no-source-maps",
+        "test": "yarn build src/index.html --reporter @parcel/reporter-bundle-analyzer r @parcel/reporter-bundle-buddy",
         "start": "parcel --open --no-cache ./src/index.html --target web --no-source-maps",
         "clear-cache": "rimraf --glob .parcel-cache/*",
         "clear-dist": "rimraf --glob dist/*",
         "remove-maps": "rimraf --glob dist/**/*.*.map",
         "clean": "npm run clear-dist && npm run clear-cache",
         "format": "prettier --write src/**/* --no-error-on-unmatched-pattern",
-        "production": "npm run clean && yarn build && yarn start"
+        "production": "parcel build './src/*.html' --target production --no-cache --no-source-maps --no-content-hash"
     },
-    
     "devDependencies": {
-        "@parcel/resolver-glob": "^2.9.3",
-        "@parcel/transformer-sass": "^2.9.3",
+        "@parcel/diagnostic": "2.11.0",
+        "@parcel/reporter-bundle-analyzer": "^2.11.0",
+        "@parcel/reporter-bundle-buddy": "^2.11.0",
+        "@parcel/reporter-cli": "^2.11.0",
+        "@parcel/resolver-glob": "^2.11.0",
+        "@parcel/transformer-pug": "^2.11.0",
+        "@parcel/transformer-sass": "^2.11.0",
+        "@parcel/utils": "^2.11.0",
+        "@swc/helpers": "^0.5.3",
+        "@types/jquery": "^3.5.16",
+        "@types/node": "^20.10.5",
+        "@types/reveal.js": "^4.4.8",
+        "assert": "^2.1.0",
         "parcel": "latest",
         "parcel-transformer-bypass": "^1.0.0",
         "parcel-transformer-ejs": "^1.0.1",
-        "parcel-transformer-handlebars": "^1.0.0",
-        "postcss": "^8.4.26",
+        "postcss": "^8.4.32",
         "postcss-custom-properties": "^13.2.1",
         "postcss-import": "^15.1.0",
+        "postcss-modules": "^6.0.0",
+        "postcss-nested": "^6.0.1",
+        "postcss-preset-env": "^9.3.0",
         "postcss-url": "^10.1.3",
-        "prettier": "2.4.1",
-        "rimraf": "^3.0.2",
-        "typescript": "^4.9.4"
+        "posthtml-doctype": "^1.1.1",
+        "posthtml-include": "^1.7.4",
+        "prettier": "3.1.1",
+        "process": "^0.11.10",
+        "querystring-es3": "^0.2.1",
+        "rimraf": "^5.0.5",
+        "sharp": "^0.33.2",
+        "typescript": "^5.3.3"
     },
     "dependencies": {
-        
-        "@types/jquery": "^3.5.16",
+        "@typeform/embed": "^4.0.0",
         "autoprefixer": "^10.4.13",
-        "glob": "^10.3.3",
+        "debounce": "^2.0.0",
+        "fontawesome-6-pro": "^6.4.0",
+        "glob": "^10.3.10",
+        "hsl-to-hex": "^1.0.0",
+        "http-proxy-middleware": "^2.0.6",
         "jquery": "^3.7.0",
         "parcel-namer-hashless": "^1.0.5",
-        "yarn": "^1.22.19"
+        "posthtml": "^0.16.6",
+        "yarn": "^1.22.21"
     }
 }
