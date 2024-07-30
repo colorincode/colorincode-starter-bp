@@ -1,8 +1,4 @@
-// import * as header from "/interface/header/header";
-// import * as menu from "/interface/menu/menu";
-
-//commonJS module
-//const script = require(‘./js/script’);
+// for this script you only *need* canvas ts and probably mouse, simulator and gui are simply for seeing the controls and changing them on the front end. only need to import three on the canvas scripp
 
 // import jquery , will need this for build to compile correctly when using jquery
 import * as jquery from 'jquery';
@@ -14,3 +10,11 @@ console.log("stepped through imports, help me");
 //     // stuff
 // }
 // export { menuEle };
+
+import { Canvas } from './Canvas'
+
+const canvas = new Canvas(document.querySelector<HTMLCanvasElement>('.webgl-canvas')!)
+
+window.addEventListener('beforeunload', () => {
+  canvas.dispose()
+})
