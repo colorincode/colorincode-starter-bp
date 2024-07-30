@@ -12,6 +12,7 @@ yarn.lock
 .env.test.local
 .env.production.local
 .codesandbox
+.vscode
 # MAC
 ._*
 .DS_Store
