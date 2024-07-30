@@ -161,6 +161,7 @@ The following image formats are supported, both as input and as output via the a
 ### **Version 1.0.7** 07-30-2024
 > breaking change: must update sharp module, this is still conflicting with some node versions. You may have to roll sharp back with some conflicting versions. This is tested on node v20.12.2 and npm 10.5.2
 > Added font awesome w/package manager. This is a default font awesomme kit, and will not work on production sites without running `npm update '@awesome.me/kit-KITHASHHERE'`
+> remmoved assert and other dep scripts that are natively supported. 
 
 
 
