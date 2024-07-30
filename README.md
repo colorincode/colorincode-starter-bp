@@ -36,8 +36,14 @@ npm i | npm i yarn
 ~~~
 
 ### Install dependencies
+Please note: For font awesome to work with your own kit, you mmust add a .npmrc file to your local project with account credentials. 
+You must update npm to reflect your own account credentials. This kit will work for local builds, but will not work on production builds without a kit specified. The npmrc file is not placed in the repo of this project. 
 ~~~
-npm i @parcel/transformer-sass | npm i @parcel/resolver-glob | npm i glob
+npm update '@awesome.me/kit-KITHASHHERE
+~~~
+
+~~~
+npm install --save '@awesome.me/kit-KIT_CODE@latest'
 ~~~
 
 ### File structure and project root directory 
@@ -152,6 +158,15 @@ The following image formats are supported, both as input and as output via the a
 
 
 ## Changelog and updates 🔔
+### **Version 1.0.7** 07-30-2024
+> breaking change: must update sharp module, this is still conflicting with some node versions. You may have to roll sharp back with some conflicting versions. This is tested on node v20.12.2 and npm 10.5.2
+> Added font awesome w/package manager. This is a default font awesomme kit, and will not work on production sites without running `npm update '@awesome.me/kit-KITHASHHERE'`
+
+
+
+### **Version 1.0.6** 07-30-2024
+> patched small partial version
+
 ### **Version 1.0.5** 02-11-2024
 > update package json to support partials
 > added html template partials, update partial for globals (pure html)

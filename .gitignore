@@ -4,6 +4,7 @@ assets/
 working-files/
 package-lock.json
 yarn.lock
+.npmrc
 
 # ENV FILES
 .env
